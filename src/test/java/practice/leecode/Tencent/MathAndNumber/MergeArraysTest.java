@@ -1,6 +1,7 @@
-package practice.leecode.qq;
+package practice.leecode.qq.MathAndNumber;
 
 import org.junit.Test;
+import practice.leecode.qq.LinkedTable.MergeArrays;
 
 import static org.junit.Assert.*;
 
@@ -16,7 +17,8 @@ public class MergeArraysTest {
 
     }
 
-    private void merge1() {
+    @Test
+    public void merge1() {
 
         int[] nums1 = {1,2,3,0,0,0};
         int[] nums2 = {2,5,6};
@@ -32,7 +34,8 @@ public class MergeArraysTest {
 
     }
 
-    private void merge2() {
+    @Test
+    public void merge2() {
 
         int[] nums1 = {-1,0,0,3,3,3,0,0,0};
         int[] nums2 = {1,2,2};
@@ -48,7 +51,8 @@ public class MergeArraysTest {
 
     }
 
-    private void merge3() {
+    @Test
+    public void merge3() {
 
         int[] nums1 = {1,3,0,0,0,0};
         int[] nums2 = {2,5,6,7};
@@ -64,7 +68,8 @@ public class MergeArraysTest {
 
     }
 
-    private void merge4() {
+    @Test
+    public void merge4() {
 
         int[] nums1 = {0};
         int[] nums2 = {1};

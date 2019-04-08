@@ -1,0 +1,19 @@
+package practice.leecode.qq;
+
+public class MaxSubArray {
+
+    public int maxSubArray(int[] nums) {
+
+        int sum = 0;
+        int res = nums[0];
+
+        for(int num : nums) {
+            sum = sum > 0 ? sum + num : num;
+            res = res >= sum ? res : sum;
+        }
+
+        return res;
+
+    }
+
+}

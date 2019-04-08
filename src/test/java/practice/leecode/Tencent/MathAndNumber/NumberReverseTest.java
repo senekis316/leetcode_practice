@@ -1,8 +1,9 @@
-package practice.leecode.qq;
+package practice.leecode.qq.MathAndNumber;
 
 import org.junit.Test;
 
 import static org.junit.Assert.*;
+
 
 public class NumberReverseTest {
 
@@ -15,10 +16,6 @@ public class NumberReverseTest {
         assertEquals(21, numberReverse.reverse(120));
         assertEquals(0, numberReverse.reverse(0));
         assertEquals(0, numberReverse.reverse(1534236469));
-
-
-
-
 
     }
 }

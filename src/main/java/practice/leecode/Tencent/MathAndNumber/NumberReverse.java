@@ -1,4 +1,4 @@
-package practice.leecode.qq;
+package practice.leecode.qq.MathAndNumber;
 
 
 public class NumberReverse {
