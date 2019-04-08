@@ -1,4 +1,4 @@
-package practice.leecode.qq.BackTrackAlgorithm;
+package practice.leecode.Tencent.BackTrackAlgorithm;
 
 import java.util.ArrayList;
 import java.util.List;

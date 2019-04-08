@@ -1,8 +1,6 @@
-package practice.leecode.qq.SortAndSearch;
+package practice.leecode.Tencent.SortAndSearch;
 
 import org.junit.Test;
-
-import java.lang.reflect.Array;
 
 import static org.junit.Assert.*;
 

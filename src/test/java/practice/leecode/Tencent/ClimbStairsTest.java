@@ -1,6 +1,11 @@
-package practice.leecode.qq;
+package practice.leecode.Tencent;
 
 import org.junit.Test;
+
+import java.io.DataInputStream;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.util.Hashtable;
 
 import static org.junit.Assert.*;
 

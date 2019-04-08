@@ -1,4 +1,4 @@
-package practice.leecode.qq;
+package practice.leecode.Tencent;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

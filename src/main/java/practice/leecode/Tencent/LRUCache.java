@@ -1,4 +1,4 @@
-package practice.leecode.qq;
+package practice.leecode.Tencent;
 
 import java.util.*;
 

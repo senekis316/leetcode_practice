@@ -1,7 +1,6 @@
-package practice.leecode.qq;
+package practice.leecode.Tencent;
 
 import org.junit.Test;
-import practice.utils.JacksonUtils;
 
 import static org.junit.Assert.*;
 

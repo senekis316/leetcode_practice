@@ -1,6 +1,4 @@
-package practice.leecode.qq.MathAndNumber;
-
-import java.util.Arrays;
+package practice.leecode.Tencent.MathAndNumber;
 
 public class SingleNumber {
 

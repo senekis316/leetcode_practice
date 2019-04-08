@@ -1,12 +1,4 @@
-package practice.leecode.qq;
-
-import practice.utils.JacksonUtils;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.IntStream;
+package practice.leecode.Tencent;
 
 public class FindMedianSortedArrays {
 

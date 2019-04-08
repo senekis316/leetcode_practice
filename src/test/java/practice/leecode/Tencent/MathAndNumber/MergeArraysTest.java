@@ -1,7 +1,7 @@
-package practice.leecode.qq.MathAndNumber;
+package practice.leecode.Tencent.MathAndNumber;
 
 import org.junit.Test;
-import practice.leecode.qq.LinkedTable.MergeArrays;
+import practice.leecode.Tencent.LinkedTable.MergeArrays;
 
 import static org.junit.Assert.*;
 

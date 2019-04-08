@@ -1,9 +1,7 @@
-package practice.leecode.qq.BackTrackAlgorithm;
+package practice.leecode.Tencent.BackTrackAlgorithm;
 
 import org.junit.Test;
 import practice.utils.JacksonUtils;
-
-import static org.junit.Assert.*;
 
 public class SubsetsTest {
 

@@ -1,4 +1,4 @@
-package practice.leecode.qq.LinkedTable;
+package practice.leecode.Tencent.LinkedTable;
 
 import org.junit.Test;
 

@@ -1,4 +1,4 @@
-package practice.leecode.qq.MathAndNumber;
+package practice.leecode.Tencent.MathAndNumber;
 
 import org.junit.Test;
 

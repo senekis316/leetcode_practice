@@ -1,8 +1,7 @@
-package practice.leecode.qq.LinkedTable;
+package practice.leecode.Tencent.LinkedTable;
 
 import org.junit.Test;
-import practice.leecode.qq.LinkedTable.LinkedSorts;
-import practice.leecode.qq.LinkedTable.LinkedSorts.ListNode;
+import practice.leecode.Tencent.LinkedTable.LinkedSorts.ListNode;
 
 import static org.junit.Assert.*;
 
