@@ -1,9 +1,10 @@
 package practice.leecode.Tree;
 
+import practice.utils.TreeNode;
+
 import java.util.ArrayList;
 import java.util.List;
 
-import practice.leecode.Tree.MaxDepth.TreeNode;
 
 public class InOrderTraversal_99 {
 

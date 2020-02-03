@@ -1,6 +1,7 @@
 package practice.leecode.Tree;
 
-import practice.leecode.Tree.MaxDepth.TreeNode;
+
+import practice.utils.TreeNode;
 
 public class IsSymmetricTree_101 {
 

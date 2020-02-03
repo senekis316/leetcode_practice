@@ -1,6 +1,7 @@
 package practice.leecode.HashAndMapped;
 
 import org.junit.Test;
+import practice.leecode.HashMap.ExcelSequence;
 
 import static org.junit.Assert.*;
 

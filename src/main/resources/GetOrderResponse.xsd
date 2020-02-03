@@ -1,0 +1,411 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="GetOrderResponse" type="GetOrderResponseType"/>
+  <xs:complexType name="CommissionType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="BID"/>
+      <xs:element type="xs:string" name="CommissionNumber"/>
+      <xs:element type="xs:string" name="CommisionNumberYear"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PurchaseOrderIdentifierType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="PurchaseOrderUID"/>
+      <xs:element type="CommissionType" name="Commission"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="TrackingPointNumberType">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute type="xs:string" name="name" use="optional"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="TrackingPointType">
+    <xs:sequence>
+      <xs:element type="TrackingPointNumberType" name="TrackingPointNumber"/>
+      <xs:element name="ReachedDate" minOccurs="0">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="2019-02-04"/>
+            <xs:enumeration value="2019-04-08"/>
+            <xs:enumeration value="2019-03-13"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element type="xs:string" name="CurrentETA" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="TrackingPointsType">
+    <xs:sequence>
+      <xs:element type="TrackingPointType" name="TrackingPoint" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PartnerKeyType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="Country"/>
+      <xs:element type="xs:string" name="Brand"/>
+      <xs:element type="xs:string" name="PartnerNumber"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="DealerIdentifierType">
+    <xs:sequence>
+      <xs:element type="PartnerKeyType" name="PartnerKey"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="DealerRefType">
+    <xs:sequence>
+      <xs:element type="DealerIdentifierType" name="DealerIdentifier"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="SalesPersonIdentifierType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="SalesPersonNumber"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="SalesPersonRefType">
+    <xs:sequence>
+      <xs:element type="SalesPersonIdentifierType" name="SalesPersonIdentifier"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="SalesmanType">
+    <xs:sequence>
+      <xs:element type="SalesPersonRefType" name="SalesPersonRef"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="OwningDealerType">
+    <xs:sequence>
+      <xs:element type="DealerRefType" name="DealerRef"/>
+      <xs:element type="SalesmanType" name="Salesman"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="DeliveredToDealerType">
+    <xs:sequence>
+      <xs:element type="DealerRefType" name="DealerRef"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="InvolvedPartiesType">
+    <xs:sequence>
+      <xs:element type="OwningDealerType" name="OwningDealer"/>
+      <xs:element type="DeliveredToDealerType" name="DeliveredToDealer"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="VehicleSpecificationRefType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="VehicleSpecificationUID"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="TypeType">
+    <xs:sequence>
+      <xs:element name="PriceGroup">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="WholesalerPrice"/>
+            <xs:enumeration value="CatalogPrice"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element type="xs:string" name="PriceType" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="AmountType">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute type="xs:string" name="currency" use="optional"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="PriceType">
+    <xs:sequence>
+      <xs:element type="TypeType" name="Type"/>
+      <xs:element type="xs:string" name="TaxType"/>
+      <xs:element type="AmountType" name="Amount"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PricesType">
+    <xs:sequence>
+      <xs:element type="PriceType" name="Price" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ProductionNumberType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="ProductionNumberID"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ProductionInformationType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="IFAOrderType"/>
+      <xs:element type="xs:string" name="IFATimingIndicator"/>
+      <xs:element type="ProductionNumberType" name="ProductionNumber"/>
+      <xs:element type="xs:string" name="VIN"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ConfirmedDeliveryDateType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="FlexibleDateRangeChoice"/>
+      <xs:element type="xs:string" name="Day"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="DatesType">
+    <xs:sequence>
+      <xs:element type="ConfirmedDeliveryDateType" name="ConfirmedDeliveryDate"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="DealerInvoiceType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="InvoiceNumber"/>
+      <xs:element type="xs:string" name="InvoiceDate"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="HoldReasonType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="HoldReasonKey"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="HoldReasonsType">
+    <xs:sequence>
+      <xs:element type="HoldReasonType" name="HoldReason"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="HoldsType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="HoldTypeIndicator"/>
+      <xs:element type="HoldReasonsType" name="HoldReasons"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ShippingDataType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="FullDestination"/>
+      <xs:element type="xs:string" name="TransportType"/>
+      <xs:element type="xs:string" name="ShipPort"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ShippingDataListType">
+    <xs:sequence>
+      <xs:element type="ShippingDataType" name="ShippingData"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ShipmentInformationType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="ShipName"/>
+      <xs:element type="ShippingDataListType" name="ShippingDataList"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ObjectiveRefType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="ObjectiveUID"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ObjectivePeriodType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="StartDay"/>
+      <xs:element type="xs:string" name="EndDay"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ObjectiveType">
+    <xs:sequence>
+      <xs:element type="ObjectiveRefType" name="ObjectiveRef"/>
+      <xs:element type="xs:string" name="Name"/>
+      <xs:element type="ObjectivePeriodType" name="ObjectivePeriod"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ObjectivesType">
+    <xs:sequence>
+      <xs:element type="ObjectiveType" name="Objective"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ProcessingInformationType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="LastChangeDate"/>
+      <xs:element type="xs:string" name="LastChangeUser"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PurchaseOrderType">
+    <xs:sequence>
+      <xs:element type="PurchaseOrderIdentifierType" name="PurchaseOrderIdentifier"/>
+      <xs:element type="xs:string" name="OrderStatus"/>
+      <xs:element type="xs:string" name="OrderSubStatus"/>
+      <xs:element type="TrackingPointsType" name="TrackingPoints"/>
+      <xs:element type="InvolvedPartiesType" name="InvolvedParties"/>
+      <xs:element type="VehicleSpecificationRefType" name="VehicleSpecificationRef"/>
+      <xs:element type="PricesType" name="Prices"/>
+      <xs:element type="ProductionInformationType" name="ProductionInformation"/>
+      <xs:element type="DatesType" name="Dates"/>
+      <xs:element type="DealerInvoiceType" name="DealerInvoice"/>
+      <xs:element type="xs:string" name="OrderCategory"/>
+      <xs:element type="HoldsType" name="Holds"/>
+      <xs:element type="ShipmentInformationType" name="ShipmentInformation"/>
+      <xs:element type="ObjectivesType" name="Objectives"/>
+      <xs:element type="ProcessingInformationType" name="ProcessingInformation"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="VehicleSpecificationIdentifierType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="VehicleSpecificationUID"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PicturedDescriptionType">
+    <xs:sequence>
+      <xs:element name="Description">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="黑玉色金属漆"/>
+            <xs:enumeration value="双色调部分真皮内饰，黑色/莫哈韦米色"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="DescriptionsType">
+    <xs:sequence>
+      <xs:element type="PicturedDescriptionType" name="PicturedDescription"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="FinishType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="ColourCode"/>
+      <xs:element type="DescriptionsType" name="Descriptions"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ColourSalesFamiliesType">
+    <xs:sequence>
+      <xs:element type="FinishType" name="Finish" minOccurs="0"/>
+      <xs:element type="TopType" name="Top" minOccurs="0"/>
+      <xs:element type="ColourSalesFamiliesType" name="ColourSalesFamilies" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="TopType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="ColourCode"/>
+      <xs:element type="DescriptionsType" name="Descriptions"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="InteriorType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="InteriorCode"/>
+      <xs:element type="DescriptionsType" name="Descriptions"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="InteriorSalesFamiliesType">
+    <xs:sequence>
+      <xs:element type="InteriorType" name="Interior" minOccurs="0"/>
+      <xs:element name="InteriorSalesFamilies" maxOccurs="unbounded" minOccurs="0">
+        <xs:complexType mixed="true">
+          <xs:sequence>
+            <xs:element type="InteriorType" name="Interior" minOccurs="0"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ColourInteriorType">
+    <xs:sequence>
+      <xs:element type="ColourSalesFamiliesType" name="ColourSalesFamilies"/>
+      <xs:element type="InteriorSalesFamiliesType" name="InteriorSalesFamilies"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PRCodingType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="PRType"/>
+      <xs:element name="PRFamily">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="F_AF"/>
+            <xs:enumeration value="F_VF"/>
+            <xs:enumeration value="F_IA"/>
+            <xs:enumeration value="M_3S1"/>
+            <xs:enumeration value="M_43C"/>
+            <xs:enumeration value="M_8IS"/>
+            <xs:enumeration value="M_8LE"/>
+            <xs:enumeration value="M_9JB"/>
+            <xs:enumeration value="M_PN1"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="PRNumber">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="2T"/>
+            <xs:enumeration value="QM"/>
+            <xs:enumeration value="3S1"/>
+            <xs:enumeration value="43C"/>
+            <xs:enumeration value="8IS"/>
+            <xs:enumeration value="8LE"/>
+            <xs:enumeration value="9JB"/>
+            <xs:enumeration value="PN1"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="Remark">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="黑玉色金属漆"/>
+            <xs:enumeration value="双色调部分真皮内饰，黑色/莫哈韦米色"/>
+            <xs:enumeration value="铝合金车顶行李轨"/>
+            <xs:enumeration value="19 英寸 Cayenne S 车轮"/>
+            <xs:enumeration value="带保时捷动态照明系统 (PDLS) 的 LED 大灯"/>
+            <xs:enumeration value="仪表板上的罗盘显示屏, 包含保时捷越野助手应用程序"/>
+            <xs:enumeration value="吸烟者套装"/>
+            <xs:enumeration value="豪华组件"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="FeatureType">
+    <xs:sequence>
+      <xs:element type="PRCodingType" name="PRCoding"/>
+      <xs:element type="PricesType" name="Prices" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="FeaturesType">
+    <xs:sequence>
+      <xs:element type="FeatureType" name="Feature" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="AttributeType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="Code"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="AttributesType">
+    <xs:sequence>
+      <xs:element type="AttributeType" name="Attribute"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="AttributesListType">
+    <xs:sequence>
+      <xs:element type="AttributesType" name="Attributes"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="TechnicalDataType">
+    <xs:sequence>
+      <xs:element type="AttributesListType" name="AttributesList"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ModelGroupsType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="ModelGroup"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="VehicleSpecificationType">
+    <xs:sequence>
+      <xs:element type="VehicleSpecificationIdentifierType" name="VehicleSpecificationIdentifier"/>
+      <xs:element type="xs:string" name="ProductBrand"/>
+      <xs:element type="xs:string" name="ModelCoding"/>
+      <xs:element type="xs:string" name="ModelYear"/>
+      <xs:element type="xs:string" name="ModelVersion"/>
+      <xs:element type="ColourInteriorType" name="ColourInterior"/>
+      <xs:element type="FeaturesType" name="Features"/>
+      <xs:element type="PricesType" name="Prices"/>
+      <xs:element type="TechnicalDataType" name="TechnicalData"/>
+      <xs:element type="ModelGroupsType" name="ModelGroups"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="GetOrderResponseType">
+    <xs:sequence>
+      <xs:element type="PurchaseOrderType" name="PurchaseOrder"/>
+      <xs:element type="VehicleSpecificationType" name="VehicleSpecification"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

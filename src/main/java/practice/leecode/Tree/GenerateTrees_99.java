@@ -31,11 +31,23 @@ public class GenerateTrees_99 {
         return res;
     }
 
-    public class TreeNode {
+    public static class TreeNode {
         int val;
         TreeNode left;
         TreeNode right;
         TreeNode(int x) { val = x; }
     }
 
+    public static class SortedArrayToBST_108 {
+
+        //TODO
+        public TreeNode sortedArrayToBST(int[] nums) {
+            int middle = nums.length / 2;
+            TreeNode treeNode = new TreeNode(nums[middle]);
+            treeNode.left = sortedArrayToBST(nums);
+            treeNode.right = sortedArrayToBST(nums);
+            return treeNode;
+        }
+
+    }
 }
