@@ -1,6 +1,7 @@
 package practice.leecode;
 
 import org.junit.Test;
+import practice.leecode.Tree.InvertTree_226;
 import practice.utils.TreeNode;
 
 import static org.junit.Assert.*;

@@ -1,0 +1,10 @@
+server:
+  port: 8081
+
+
+spring:
+  redis:
+    port: ${REDIS_PORT:6379}
+    host: ${REDIS_HOST:localhost}
+    database: ${REDIS_DATABASE:0}
+

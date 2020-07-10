@@ -1,8 +1,7 @@
 package practice.leecode;
 
 import org.junit.Test;
-
-import static org.junit.Assert.*;
+import practice.leecode.Stack.Statck_MinStack_155;
 
 public class Statck_MinStack_155Test {
 

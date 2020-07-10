@@ -6,7 +6,6 @@ import practice.utils.Node;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.sun.org.apache.xalan.internal.xsltc.compiler.util.Type.Node;
 import static org.junit.Assert.*;
 
 public class LevelOrder_429Test {

@@ -10,6 +10,7 @@ import java.io.OutputStream;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 
+import java.util.concurrent.locks.ReentrantLock;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.poi.openxml4j.opc.OPCPackage;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
@@ -36,7 +37,10 @@ public class DocTest {
         maps.put("${contractCode}", choose);
         maps.put("${brand}", "Porsche");
 
-        writer("/Users/yufangxing/Programme/github/java/leetCode/practice/src/main/resources/汽车订制购买合同.docx",
+        ReentrantLock reentrantLock = new ReentrantLock();
+        reentrantLock.lock();
+
+        writer("/Users/yufangxing/Programme/github/java/leetCode/practice/src/main/resources/汽车订制购买合同2023.docx",
             "/Users/yufangxing/Programme/github/java/leetCode/practice/src/main/resources/汽车订制购买合同1.docx",
             maps);
     }

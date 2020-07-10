@@ -1,30 +1,23 @@
 package practice.leecode.Tree;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
+import lombok.var;
 
 public class PathInZigZagTree_1104 {
 
-    List<Integer> pathList = new LinkedList<>();
     public List<Integer> pathInZigZagTree(int label) {
-        int head = 1;
-        int row = 1;
-        while(head*2<=label){
-            head*=2;
-            row++;
+        List<Integer> nums = new ArrayList<>();
+        int level = (int)(Math.log(label) / Math.log(2));
+        while (label > 1) {
+            nums.add(label);
+            label = (int)(3 * Math.pow(2, --level) - label / 2 - 1);
         }
-        fillPathInList(row,head,label);
-        return pathList;
-    }
-    private void fillPathInList(int row,int head,int temp){
-        if(row==1){
-            pathList.add(1);
-            return;
-        }
-        int index = (temp-head)/2+1;
-        int newTemp = head-index;
-        fillPathInList(row-1,head/2,newTemp);
-        pathList.add(temp);
+        nums.add(1);
+        Collections.reverse(nums);
+        return nums;
     }
 
 }

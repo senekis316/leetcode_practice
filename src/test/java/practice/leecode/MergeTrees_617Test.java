@@ -1,7 +1,8 @@
 package practice.leecode;
 
 import org.junit.Test;
-import practice.leecode.MergeTrees_617.TreeNode;
+import practice.leecode.Tree.MergeTrees_617;
+import practice.utils.TreeNode;
 
 import static org.junit.Assert.*;
 
