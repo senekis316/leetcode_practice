@@ -1,10 +1,8 @@
 package practice.leecode.Tree;
 
+import java.util.List;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.LinkedList;
-import java.util.List;
-import lombok.var;
 
 public class PathInZigZagTree_1104 {
 
