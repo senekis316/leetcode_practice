@@ -3,51 +3,43 @@ package practice.leecode.Stack;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 import java.util.Stack;
 
-public class Stack_ValidBrackets_20 {
+public class IsValid_20 {
 
-
-    private static Map<Character, Character> bracketPairHashMap = new HashMap<>();
+    private static Map<Character, Character> pairs;
 
     static {
-        bracketPairHashMap.put(')', '(');
-        bracketPairHashMap.put(']', '[');
-        bracketPairHashMap.put('}', '{');
+        pairs = new HashMap<>();
+        pairs.put('}', '{');
+        pairs.put(']', '[');
+        pairs.put(')', '(');
     }
 
-    public boolean isValid(String str) {
-
-        if (str == null || str.length() == 1) {
-            return false;
-        }
-
-        if (str.length() == 0) {
+    public boolean isValid(String s) {
+        if (s == null || s.length() == 0) {
             return true;
         }
-
-        Stack<Character> bracketStack = new Stack<>();
-
-        for (int i = 0; i < str.length(); i++) {
-
-            char c = str.charAt(i);
-
-            if (bracketPairHashMap.containsKey(c)) {
-                char top = bracketStack.empty() ? '#' : bracketStack.pop();
-                if (top != bracketPairHashMap.get(c)) {
+        if (s.length() % 2 != 0) {
+            return false;
+        }
+        Stack<Character> stack = new Stack<>();
+        for (int i = 0; i < s.length(); i++) {
+            char ch = s.charAt(i);
+            if (pairs.get(ch) == null) {
+                stack.push(s.charAt(i));
+            } else {
+                if (stack.isEmpty() || stack.pop() != pairs.get(ch)) {
                     return false;
                 }
-            } else {
-                bracketStack.push(c);
             }
-
         }
-
-        return bracketStack.empty();
-
+        return stack.isEmpty();
     }
 
 }
+
 
 
 //自定义Stack解决括号匹配问题
