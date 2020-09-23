@@ -23,4 +23,5 @@ public class SwapPairs_24Test {
         assertTrue(head.next.next == node4);
         assertTrue(head.next.next.next == node3);
     }
+
 }
