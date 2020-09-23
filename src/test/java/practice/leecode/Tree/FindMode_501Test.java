@@ -21,4 +21,5 @@ public class FindMode_501Test {
         assertArrayEquals(new int[]{2}, findMode.findMode(root));
 
     }
+
 }
