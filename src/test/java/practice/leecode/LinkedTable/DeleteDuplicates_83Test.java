@@ -51,4 +51,5 @@ public class DeleteDuplicates_83Test {
         assertTrue(node1.val == 1);
         assertTrue(node1.next == null);
     }
+
 }

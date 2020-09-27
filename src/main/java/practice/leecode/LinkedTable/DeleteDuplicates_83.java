@@ -5,17 +5,15 @@ import practice.utils.ListNode;
 public class DeleteDuplicates_83 {
 
     public ListNode deleteDuplicates(ListNode head) {
-        ListNode prev = null;
-        ListNode curr = head;
-        while (curr != null) {
-            if (prev != null && prev.val == curr.val) {
-                prev.next = curr.next;
+        ListNode prev = head;
+        while (head != null && head.next != null) {
+            if (head.val == head.next.val) {
+                head.next = head.next.next;
             } else {
-                prev = curr;
+                head = head.next;
             }
-            curr = curr.next;
         }
-        return head;
+        return prev;
     }
 
 }
