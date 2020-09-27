@@ -1,4 +1,4 @@
-package practice.leecode.dynamic;
+package practice.leecode.Dynamic;
 
 public class Rob_198 {
 

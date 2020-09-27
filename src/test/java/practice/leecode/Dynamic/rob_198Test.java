@@ -1,4 +1,4 @@
-package practice.leecode.dynamic;
+package practice.leecode.Dynamic;
 
 import static org.junit.Assert.*;
 
