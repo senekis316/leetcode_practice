@@ -5,12 +5,15 @@ import practice.utils.TreeNode;
 public class InsertIntoBST_701 {
 
     public TreeNode insertIntoBST(TreeNode root, int val) {
+        if (root == null) {
+            root = new TreeNode(val);
+        }
         insertIntoBST(val, root);
         return root;
     }
 
-    private void insertIntoBST(int val, TreeNode root) {
-        if (root == null) {
+    public void insertIntoBST(int val, TreeNode root) {
+        if (root == null || root.val == val) {
             return;
         }
         if (root.val > val) {

@@ -27,4 +27,12 @@ public class InsertIntoBST_701Test {
         assertEquals(5, resultNode.right.left.val);
 
     }
+
+    @Test
+    public void insertIntoBST_2() {
+        InsertIntoBST_701 insertIntoBST_701 = new InsertIntoBST_701();
+        TreeNode resultNode = insertIntoBST_701.insertIntoBST(null, 5);
+        assertEquals(5, resultNode.val);
+    }
+
 }
