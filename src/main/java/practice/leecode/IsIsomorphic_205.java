@@ -6,11 +6,11 @@ import java.util.Map;
 public class IsIsomorphic_205 {
 
     public boolean isIsomorphic(String s, String t) {
-        Map<String, String> leftToRightMap = new HashMap<>();
-        Map<String, String> rightToLeftMap = new HashMap<>();
+        Map<Character, Character> leftToRightMap = new HashMap<>();
+        Map<Character, Character> rightToLeftMap = new HashMap<>();
         for (int i = 0; i < s.length(); i++) {
-            String s1 = String.valueOf(s.charAt(i));
-            String t1 = String.valueOf(t.charAt(i));
+            char s1 = s.charAt(i);
+            char t1 = t.charAt(i);
             if (leftToRightMap.get(s1) != null && !leftToRightMap.get(s1).equals(t1)) {
                 return false;
             }
