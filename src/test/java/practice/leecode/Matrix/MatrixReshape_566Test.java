@@ -1,6 +1,7 @@
-package practice.leecode.Arrays;
+package practice.leecode.Matrix;
 
 import org.junit.Test;
+import practice.leecode.Matrix.MatrixReshape_566;
 
 import static org.junit.Assert.*;
 
