@@ -8,7 +8,6 @@ public class DeleteNode_237 {
         node.next = node.next.next;
     }
 
-
     public class ListNode {
         int val;
         ListNode next;
