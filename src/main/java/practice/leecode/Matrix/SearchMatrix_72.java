@@ -13,7 +13,6 @@ public class SearchMatrix_72 {
             } else if (matrix[x][y] < target) {
                 y ++;
             }
-
         }
         return false;
     }
