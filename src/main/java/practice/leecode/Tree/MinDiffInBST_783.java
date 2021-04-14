@@ -2,9 +2,6 @@ package practice.leecode.Tree;
 
 import practice.utils.TreeNode;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class MinDiffInBST_783 {
 
     private Integer pre;
