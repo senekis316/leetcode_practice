@@ -25,4 +25,5 @@ public class StrStr_28Test {
     public void getPrefixTable() {
         assertArrayEquals(new int[]{0,1,0,1,2,0}, new StrStr_28().getPrefixTable("aabaaf"));
     }
+
 }
