@@ -8,7 +8,6 @@ import java.util.List;
 
 public class IsCousins_993 {
 
-
     public boolean isCousins(TreeNode root, int x, int y) {
         if (root == null) {
             return false;
