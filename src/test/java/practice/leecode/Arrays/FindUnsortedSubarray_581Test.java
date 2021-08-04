@@ -18,4 +18,22 @@ public class FindUnsortedSubarray_581Test {
         assertEquals(4, findUnsortedSubarray_581.findUnsortedSubarray(new int[]{1, 3, 5, 2, 4}));
     }
 
+    @Test
+    public void findUnsortedSubarray_3() {
+        FindUnsortedSubarray_581 findUnsortedSubarray_581 = new FindUnsortedSubarray_581();
+        assertEquals(0, findUnsortedSubarray_581.findUnsortedSubarray(new int[]{1, 2, 3, 4}));
+    }
+
+    @Test
+    public void findUnsortedSubarray_4() {
+        FindUnsortedSubarray_581 findUnsortedSubarray_581 = new FindUnsortedSubarray_581();
+        assertEquals(0, findUnsortedSubarray_581.findUnsortedSubarray(new int[]{1, 2, 3, 3, 3}));
+    }
+
+    @Test
+    public void findUnsortedSubarray_5() {
+        FindUnsortedSubarray_581 findUnsortedSubarray_581 = new FindUnsortedSubarray_581();
+        assertEquals(2, findUnsortedSubarray_581.findUnsortedSubarray(new int[]{1,3,2,3,3}));
+    }
+
 }
