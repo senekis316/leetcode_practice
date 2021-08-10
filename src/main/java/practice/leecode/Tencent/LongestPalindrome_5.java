@@ -15,11 +15,8 @@ public class LongestPalindrome_5 {
 
     public String longestPalindrome(String s) {
         String str = preHandleString(s);
-        int len =  str.length();
-        int rightSide = 0;
-        int rightCenter = 0;
-        int center = 0;
-        int longestHalf = 0;
+        int len = str.length();
+        int center = 0, longestHalf = 0, rightSide = 0, rightCenter = 0;
         int[] halfArray = new int[len];
         for (int i = 0; i < len; i++) {
             boolean needExtend = true;
