@@ -1,14 +1,15 @@
 package practice.leecode.Arrays;
 
-public class ArrayPairSum_561 {
 
-    public int arrayPairSum(int[] nums) {
-        quick_sort(nums, 0, nums.length - 1);
-        int sum = 0;
-        for (int i = 0; i < nums.length; i = i + 2) {
-            sum += nums[i];
+public class SmallestK_17_14 {
+
+    public int[] smallestK(int[] arr, int k) {
+        quick_sort(arr, 0, arr.length - 1);
+        int[] res = new int[k];
+        for (int i = 0; i < k; i++) {
+            res[i] = arr[i];
         }
-        return sum;
+        return res;
     }
 
     private void quick_sort(int[] nums, int l, int r) {
