@@ -15,11 +15,22 @@ public class FileChannelReadWrite {
         FileOutputStream fileOutputStream = new FileOutputStream(file2);
         FileChannel fileChannel2 = fileOutputStream.getChannel();
 
-        ByteBuffer byteBuffer = ByteBuffer.allocate(fileInputStream.available());
-        fileChannel1.read(byteBuffer);
-        byteBuffer.flip();
+        // 假设文件很大, buffer很小，需要循环读取
+        ByteBuffer byteBuffer = ByteBuffer.allocate(2);
 
-        fileChannel2.write(byteBuffer);
+        // 循环读取时一定主要，读写切换用flip, 每一轮读写完毕后，使用clear重置标志位，
+        // 否则可能read = 0，导致死循环
+        while (true) {
+            byteBuffer.clear();
+            int read = fileChannel1.read(byteBuffer);
+            if (read == -1) {
+                break;
+            }
+            byteBuffer.flip();
+            fileChannel2.write(byteBuffer);
+        }
+        fileChannel1.close();
+        fileChannel2.close();
         fileInputStream.close();
         fileOutputStream.close();
     }
