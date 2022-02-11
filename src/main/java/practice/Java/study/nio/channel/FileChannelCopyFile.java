@@ -1,4 +1,4 @@
-package practice.Java.study.nio.buffer;
+package practice.Java.study.nio.channel;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;

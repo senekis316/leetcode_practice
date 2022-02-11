@@ -1,11 +1,11 @@
-package practice.Java.study.nio.buffer;
+package practice.Java.study.nio.channel;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.channels.FileChannel;
 
-public class FileChannelWrite {
+public class FileChannelWriteFile {
 
     public static void main(String[] args) throws IOException {
         String str = "hello, FileChannel";
