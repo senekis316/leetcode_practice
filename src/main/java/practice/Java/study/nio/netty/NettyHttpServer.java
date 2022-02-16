@@ -4,6 +4,7 @@ import io.netty.bootstrap.ServerBootstrap;
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
 import io.netty.channel.ChannelFuture;
+import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInitializer;
 import io.netty.channel.ChannelOption;
@@ -32,7 +33,6 @@ public class NettyHttpServer {
 
         try {
             ServerBootstrap serverBootstrap = new ServerBootstrap();
-
             serverBootstrap.group(bossGroup, workGroup)
                 .channel(NioServerSocketChannel.class)
                 .option(ChannelOption.SO_BACKLOG, 128)
@@ -63,6 +63,10 @@ public class NettyHttpServer {
 
             if (httpObject instanceof HttpRequest) {
 
+                System.out.println("msg类型:" + httpObject.getClass());
+                System.out.println("客户端地址:" + channelHandlerContext.channel().remoteAddress());
+                System.out.println("NettyHttpServerHandler hashCode:" + this.hashCode());
+
                 ByteBuf content = Unpooled.copiedBuffer("hello, client", CharsetUtil.UTF_8);
 
                 FullHttpResponse response = new DefaultFullHttpResponse(HttpVersion.HTTP_1_1, HttpResponseStatus.OK, content);
@@ -73,7 +77,5 @@ public class NettyHttpServer {
             }
         }
     }
-
-
 
 }
