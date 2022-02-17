@@ -1,0 +1,22 @@
+// 版本
+syntax = "proto3";
+
+// 如果java_multiple_files = false, 则会合并成一个文件,
+// 否则将每个message都拆开，pojo和builder，并且outclassName单独生成一个
+// 假设java_multiple_files = false会生成5个文件:
+// Student, StudentOrBuilder, TestRequest, TestRequestOrBuilder, StudentPOJO
+// option java_multiple_files = true;
+// 生成的外部类名, 同时也是文件名
+option java_outer_classname = "StudentPOJO";
+option java_package = "cn.porsche.drs.proto";
+
+// 会在StudentPOJO内部创建一个Student对象, 这个对象是protobuf的发送对象
+message Student {
+    int32 id = 1;
+    string name = 2;
+}
+
+message TestRequest {
+    string name = 1;
+}
+
