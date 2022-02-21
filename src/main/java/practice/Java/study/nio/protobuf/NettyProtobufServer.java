@@ -16,7 +16,6 @@ import io.netty.channel.socket.nio.NioServerSocketChannel;
 import io.netty.handler.codec.protobuf.ProtobufDecoder;
 import io.netty.util.CharsetUtil;
 
-
 public class NettyProtobufServer {
 
     public static void main(String[] args) throws InterruptedException {
